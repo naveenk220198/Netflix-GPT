@@ -1,3 +1,21 @@
+Netflix GPT Updates :
+
+- Create React App
+- Configured Tailwind CSS
+- Header
+- Routing of App
+- Login Form
+- Sign up form
+- Form Validation
+- useRef Hook
+- Firebase Setup
+- Deploying our app to production
+- Create SignUp user account
+- Implement sign in user api
+- created Redux store with userSlice
+- Implemented sign out
+- Update profile api
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
