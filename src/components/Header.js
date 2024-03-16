@@ -1,9 +1,12 @@
-import { signOut } from "firebase/auth";
-import React from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import React, { useEffect } from "react";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
+import { LOGO, OPTIONS, USERLOGO } from "../utils/constants";
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const handleSignOut = () => {
@@ -17,23 +20,40 @@ const Header = () => {
         navigate("/error");
       });
   };
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+    //  This will be called when component is unmounted -> unsubscribes the onAuthStateChanged method
+    return () => unsubscribe();
+  }, []);
   return (
     <div className="justify-between flex">
       <div className="w-screen p-6 absolute p-2 z-10 bg-gradient-to-b from-black justify-between flex">
-        <img
-          className="w-60 h-20"
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-          alt="logo"
-        />
+        <img className="w-44 h-16" src={LOGO} alt="logo" />
         {user && (
           <div className="flex m-2">
             <img
               alt="profile-logo"
-              className="w-12 h-12 mr-2"
-              src="https://occ-0-3215-3662.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABaSDR-kTPhPYcVVGSsV0jC3D-Q5HZSFE6fjzAM-4cMpltx1Gw9AV7OTnL8sYnC6CBxOBZQEAJLjStt822uD2lctOvNR05qM.png?r=962"
+              className="w-10 h-10 mr-2 rounded-sm"
+              src={USERLOGO}
             ></img>
             <button
-              className="h-12 px-2 bg-red-600 ml-2 rounded-l text-white text-lg font-bold"
+              className="h-10 px-2 bg-red-600 ml-2 rounded-sm text-white text-lg font-bold"
               onClick={handleSignOut}
             >
               Sign Out

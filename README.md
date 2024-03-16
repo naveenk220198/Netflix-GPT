@@ -15,6 +15,14 @@ Netflix GPT Updates :
 - created Redux store with userSlice
 - Implemented sign out
 - Update profile api
+- BugFix: When user is not logged in - restricted user from /browse to "/" (login page) & vice-versa
+- Added hardcoded values (image links) to constants files
+- Signed UP in TMDB & registerted for project, API Key & Auth Token, Hit API for movie recomendation
+-
+
+# TMBD Movies API key : 9c2c0be1c824229b90a93f301808ca44
+
+# TMDB Movies API Access Token : eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YzJjMGJlMWM4MjQyMjliOTBhOTNmMzAxODA4Y2E0NCIsInN1YiI6IjY1ZjU1MzU1ZTAzOWYxMDE2NDAyZjVlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pc3uZtSkTzmxISJdptIWAX1O8k7UGCriXeP3fDtPpXE
 
 # Getting Started with Create React App
 
