@@ -11,3 +11,6 @@ export const OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YzJjMGJlMWM4MjQyMjliOTBhOTNmMzAxODA4Y2E0NCIsInN1YiI6IjY1ZjU1MzU1ZTAzOWYxMDE2NDAyZjVlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pc3uZtSkTzmxISJdptIWAX1O8k7UGCriXeP3fDtPpXE",
   },
 };
+export const MOVIES_API =
+  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+export const VIDEO_URL = "https://www.youtube.com/embed/";

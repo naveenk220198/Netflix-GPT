@@ -4,7 +4,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO, OPTIONS, USERLOGO } from "../utils/constants";
+import { LOGO, USERLOGO } from "../utils/constants";
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const Header = () => {
   }, []);
   return (
     <div className="justify-between flex">
-      <div className="w-screen p-6 absolute p-2 z-10 bg-gradient-to-b from-black justify-between flex">
+      <div className="w-screen absolute px-14 pt-4 z-10 bg-gradient-to-b from-black justify-between flex">
         <img className="w-44 h-16" src={LOGO} alt="logo" />
         {user && (
           <div className="flex m-2">
