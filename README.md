@@ -18,7 +18,10 @@ Netflix GPT Updates :
 - BugFix: When user is not logged in - restricted user from /browse to "/" (login page) & vice-versa
 - Added hardcoded values (image links) to constants files
 - Signed UP in TMDB & registerted for project, API Key & Auth Token, Hit API for movie recomendation
--
+- Added title window & video window components for browse page.
+- Fetched movieData from TMBD api & showed title, description, play & more info buttons.
+- Used Iframe youtube trailker videos in video window. Added trailerObj to store in movieSlice.
+- Stored trailer object and dynamically getting videos rendering.
 
 # TMBD Movies API key : 9c2c0be1c824229b90a93f301808ca44
 
