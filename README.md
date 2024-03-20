@@ -22,6 +22,12 @@ Netflix GPT Updates :
 - Fetched movieData from TMBD api & showed title, description, play & more info buttons.
 - Used Iframe youtube trailker videos in video window. Added trailerObj to store in movieSlice.
 - Stored trailer object and dynamically getting videos rendering.
+- Build secondary container
+- Build movie list component
+- Build movie card component to render cards for browse page.
+- Now playing, top rated , popular, trending movies.
+- Found TMDB image cdn used it to render cards.
+- Created custom hooks usePopularMovies, useTopRatedMovies, useNowPlayingMovies, useUpcomingMovies.
 
 # TMBD Movies API key : 9c2c0be1c824229b90a93f301808ca44
 
