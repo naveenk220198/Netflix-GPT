@@ -9,9 +9,7 @@ const useMovieTrailer = (trailerId) => {
   // 872585;
   const getTrailerVideo = async () => {
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/" +
-        trailerId +
-        "/videos?language=en-US",
+      "https://api.themoviedb.org/3/movie/" + trailerId + "/videos",
       OPTIONS
     );
     // console.log(data);
@@ -24,15 +22,14 @@ const useMovieTrailer = (trailerId) => {
       ? videoObject[0]
       : json.results[0];
     // console.log("Trailer responses");
-    console.log(trailerVideoObject);
-    debugger;
+    // console.log(trailerVideoObject);
     dispatch(addTrailerVideo(trailerVideoObject));
-    return trailerVideoObject;
+    // return trailerVideoObject;
     // console.log(trailerVideoId);
   };
   useEffect(() => {
-    debugger;
     getTrailerVideo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 export default useMovieTrailer;

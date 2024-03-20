@@ -4,13 +4,16 @@ import { addNowPlayingMovies } from "../utils/movieSlice";
 import { useEffect } from "react";
 
 const useNowPlayingMovies = () => {
+  debugger;
   const dispatch = useDispatch();
   const getPlayingMovies = async () => {
     const data = await fetch(MOVIES_API, OPTIONS);
     const json = await data.json();
+    const results = json.results;
     // Dispatching an action
-    dispatch(addNowPlayingMovies(json.results));
-    return json;
+    // console.log(results);
+    dispatch(addNowPlayingMovies(results));
+    return results;
   };
   useEffect(() => {
     getPlayingMovies();
