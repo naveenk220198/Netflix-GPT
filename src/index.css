@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* CSS file or inline styles */
+/* Hide default scrollbar */
+.overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Custom scrollbar for Webkit browsers */
+  .overflow-x-auto {
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+  
+  /* Custom scrollbar styles */
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: transparent; /* Track color */
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); /* Thumb color */
+    border-radius: 10px; /* Rounded corners */
+  }
+  

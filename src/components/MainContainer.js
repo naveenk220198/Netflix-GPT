@@ -4,9 +4,7 @@ import VideoWindow from "./VideoWindow";
 import { useSelector } from "react-redux";
 
 const MainContainer = () => {
-  debugger;
   const { nowPlayingMovies } = useSelector((store) => store?.movies);
-
   if (!nowPlayingMovies) return;
   return (
     <div>

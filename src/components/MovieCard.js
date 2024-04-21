@@ -1,10 +1,10 @@
 const MovieCard = (movieData) => {
   const movieObj = movieData.movieData;
-  // console.log(movieObj.poster_path);
+  if (!movieData.movieData.poster_path) return null
   return (
-    <div className="flex m-2 w-44 h-60">
+    <div className="flex m-2 md:w-44 md:h-60 w-28 h-36 overflow-hidden relative">
       <img
-        className="w-60 h-60"
+        className="w-full h-full object-cover"
         alt={movieData.title}
         src={"https://image.tmdb.org/t/p/w500" + movieObj.poster_path}
       />

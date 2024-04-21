@@ -9,6 +9,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_LOGO } from "../utils/constants";
 const LoginPage = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const updateForm = () => {
@@ -20,9 +21,6 @@ const LoginPage = () => {
   const fullname = useRef(null);
   const dispatch = useDispatch();
   const checkValidations = () => {
-    console.log(email);
-    console.log(password);
-    debugger;
     if (!isSignInForm) {
       const message = validate(
         email.current.value,
@@ -59,7 +57,6 @@ const LoginPage = () => {
                 photoURL: photoURL,
               })
             );
-            console.log(user);
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -87,59 +84,60 @@ const LoginPage = () => {
   return (
     <div className="">
       <Header />
-      <div className="absolute">
+      <div className="">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/93da5c27-be66-427c-8b72-5cb39d275279/94eb5ad7-10d8-4cca-bf45-ac52e0a052c0/IN-en-20240226-popsignuptwoweeks-perspective_alpha_website_small.jpg"
+          src={BG_LOGO}
           alt="background-wallpaper"
+          className="h-screen object-cover fixed w-screen"
         />
       </div>
       <form
         onClick={(e) => e.preventDefault()}
-        className="absolute flex-col mx-auto my-20 w-1/4 border-2 border-black p-10 bg-opacity-85 bg-black right-0 left-0"
+        className="absolute flex-col md:mx-auto my-20 md:my-auto md:w-1/3  w-screen border-2 border-black md:px-10 md:py-10 py-5 px-10 bg-opacity-85 bg-black right-0 left-0 md:mt-[12%]"
       >
-        <p className="text-white text-3xl my-5">
+        <p className="text-white md:text-3xl text-xl  mb-6 mt-3">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </p>
-        <div className="my-4">
+        <div className="my-6">
           <input
             ref={email}
             type="text"
             placeholder="Enter email or phone number"
-            className="border-2 w-full border-black text-sm p-3 bg-gray-600 text-white"
+            className="border-2 w-full border-black md:text-lg text-sm p-3 bg-gray-600 text-white"
           />
         </div>
         {!isSignInForm && (
-          <div className="my-4">
+          <div className="my-6">
             <input
               ref={fullname}
               type="text"
               placeholder="Enter Full Name"
-              className="border-2 w-full border-black text-sm p-3 bg-gray-600 text-white"
+              className="border-2 w-full border-black md:text-lg text-sm p-3 bg-gray-600 text-white"
             />
           </div>
         )}
-        <div className="my-5">
+        <div className="my-6">
           {/* <p className="text-white text-lg">Password</p> */}
           <input
             ref={password}
             type="password"
             placeholder="Enter password"
-            className="border-2 border-black w-full text-sm p-3 bg-gray-600 text-white"
+            className="border-2 border-black w-full md:text-lg text-sm p-3 bg-gray-600 text-white"
           />
         </div>
         <p className="text-red-600 font-bold text-lg">{errorMessage}</p>
         <button
-          className="bg-red-600 my-4 w-full text-sm p-3 text-white"
+          className="bg-red-600 mt-2 mb-5 w-full md:text-lg text-sm p-3 text-white"
           onClick={checkValidations}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <div className="flex">
-          <p className="text-sm text-gray-500 mr-2">
+          <p className="text-lg text-gray-500 mr-2">
             {isSignInForm ? "New to Netflix?" : "Already Registered!"}
           </p>
           <p
-            className="text-sm text-white cursor-pointer group group-hover:underline"
+            className="md:text-lg text-sm text-white cursor-pointer group group-hover:underline"
             onClick={updateForm}
           >
             {isSignInForm ? "Sign up now" : "Sign in now"}

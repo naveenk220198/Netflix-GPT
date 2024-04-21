@@ -28,10 +28,21 @@ Netflix GPT Updates :
 - Now playing, top rated , popular, trending movies.
 - Found TMDB image cdn used it to render cards.
 - Created custom hooks usePopularMovies, useTopRatedMovies, useNowPlayingMovies, useUpcomingMovies.
-
-# TMBD Movies API key : 9c2c0be1c824229b90a93f301808ca44
-
-# TMDB Movies API Access Token : eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YzJjMGJlMWM4MjQyMjliOTBhOTNmMzAxODA4Y2E0NCIsInN1YiI6IjY1ZjU1MzU1ZTAzOWYxMDE2NDAyZjVlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pc3uZtSkTzmxISJdptIWAX1O8k7UGCriXeP3fDtPpXE
+- GPT search functionality
+- GPT search bar
+- Multi-language feature in GPT page.
+- Created config Slice, to store the language type selected by user across the app and support multi language support.
+- Made a feature as movie recommendation system using GPT OpenAI.
+- Integrated GPT apis so that whatever user enters, hitting the OpenAI api and fetching results.
+- Made use of Redux store to save the fetched results, created gptSlice to store gpt searched results.
+- Using gptSlice stored results, hitting the TMDB api to fetch movie related information to show these fetched results as movie cards in UI.
+- Reduced number of api calls made across the Root level of app. If the data is present, fetching it from store instad of making multiple api calls.
+- Hidden OpenAI & TMDB movie api keys using env files.
+- Removed all console log statements acroos the app.
+- Cleaned code, removed all commented part.
+- Hidden the browser scrollbar of x-direction in Movie list rendered UX for better look and feel. However, user will be able to scroll horizontally.
+- Responsiveness of entire app.
+- Updated classes and styling for small, medium and large screens using Tailwind framework.
 
 # Getting Started with Create React App
 
